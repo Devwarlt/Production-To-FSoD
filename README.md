@@ -1,3 +1,6 @@
+# Production To FSoD
+Check assets at https://github.com/Devwarlt/RotMG-Library.
+
 # Note:
 I'm not going to support this server source or fix bugs. If you want to use is your own risk to manage/support itself. This source is unstable and need adjusts for PacketIds.cs (I mean, you need to set properly packet IDs for each client/server request).
 
