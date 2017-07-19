@@ -27,7 +27,7 @@ namespace wServer.networking
 
     public class Client : IDisposable
     {
-        public const string SERVER_VERSION = "27.3.2";
+        public const string SERVER_VERSION = "X15.0.0";
         private bool disposed;
 
         private static readonly ILog log = LogManager.GetLogger(typeof (Client));

@@ -7,7 +7,7 @@
 
         public override PacketID ID
         {
-            get { return PacketID.HATCHEGG; }
+            get { return PacketID.HATCH_PET; }
         }
 
         public override Packet CreateInstance()

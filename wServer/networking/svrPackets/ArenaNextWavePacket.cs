@@ -6,7 +6,7 @@
 
         public override PacketID ID
         {
-            get { return PacketID.ARENANEXTWAVE; }
+            get { return PacketID.IMMINENT_ARENA_WAVE; }
         }
 
         public override Packet CreateInstance()

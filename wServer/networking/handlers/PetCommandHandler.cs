@@ -15,7 +15,7 @@ namespace wServer.networking.handlers
     {
         public override PacketID ID
         {
-            get { return PacketID.PETCOMMAND; }
+            get { return PacketID.ACTIVE_PET_UPDATE_REQUEST; }
         }
 
         protected override void HandlePacket(Client client, PetCommandPacket packet)

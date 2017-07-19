@@ -16,7 +16,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-        	get { return PacketID.QUESTFETCHRESPONSE; }
+        	get { return PacketID.QUEST_FETCH_RESPONSE; }
         }
         
         public override Packet CreateInstance()

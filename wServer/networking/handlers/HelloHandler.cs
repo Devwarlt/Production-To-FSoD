@@ -32,6 +32,11 @@ namespace wServer.networking.handlers
                 });
                 client.SendPacket(new FailurePacket
                 {
+                    ErrorId = 0,
+                    ErrorDescription = "You are using build to play " + packet.BuildVersion + " instead of " + Client.SERVER_VERSION
+                });
+                client.SendPacket(new FailurePacket
+                {
                     ErrorId = 4,
                     ErrorDescription = Client.SERVER_VERSION
                 });

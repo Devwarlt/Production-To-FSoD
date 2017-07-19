@@ -1,7 +1,6 @@
 <EquipmentSets>
 
 
-
    <EquipmentSet type="0x0001" id="Oryx Awesome Set">
       <Setpiece slot="2" itemtype="0x2337">Equipment</Setpiece>
       <Setpiece slot="1" itemtype="0x2339">Equipment</Setpiece>
@@ -31,6 +30,18 @@
       <ActivateOnEquipAll stat="20" amount="5">IncrementStat</ActivateOnEquipAll>
       <ActivateOnEquipAll stat="22" amount="6">IncrementStat</ActivateOnEquipAll>
       <ActivateOnEquipAll stat="28" amount="1">IncrementStat</ActivateOnEquipAll>
+   </EquipmentSet>
+   <EquipmentSet type="0x7fcb" id="Dragon Tamer Set">
+      <Setpiece slot="0" itemtype="0x7fbc">Equipment</Setpiece>
+      <Setpiece slot="1" itemtype="0x7fbb">Equipment</Setpiece>
+      <Setpiece slot="2" itemtype="0x7fb9">Equipment</Setpiece>
+      <Setpiece slot="3" itemtype="0x7fba">Equipment</Setpiece>
+      <ActivateOnEquipAll skinType="0x7fce" size="70" color="0x92A9BA" bulletType="Dragon Arrow">ChangeSkin</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="0" amount="75">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="22" amount="10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="20" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="28" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="21" amount="10">IncrementStat</ActivateOnEquipAll>
    </EquipmentSet>
    <EquipmentSet type="0x0006" id="Twilight Archmage Set">
       <Setpiece slot="0" itemtype="0x21a7">Equipment</Setpiece>
@@ -63,12 +74,24 @@
       <Setpiece slot="2" itemtype="0x2360">Equipment</Setpiece>
       <Setpiece slot="3" itemtype="0x2361">Equipment</Setpiece>
       <ActivateOnEquipAll skinType="0x745B" size="70" color="0x92A9BA" bulletType="Soul Vortex">ChangeSkin</ActivateOnEquipAll>
-      <ActivateOnEquipAll stat="0" amount="25">IncrementStat</ActivateOnEquipAll>
-      <ActivateOnEquipAll stat="3" amount="25">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="0" amount="35">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="3" amount="40">IncrementStat</ActivateOnEquipAll>
       <ActivateOnEquipAll stat="20" amount="5">IncrementStat</ActivateOnEquipAll>
-      <ActivateOnEquipAll stat="21" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="21" amount="10">IncrementStat</ActivateOnEquipAll>
       <ActivateOnEquipAll stat="28" amount="1">IncrementStat</ActivateOnEquipAll>
-      <ActivateOnEquipAll stat="22" amount="1">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="22" amount="2">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="27" amount="5">IncrementStat</ActivateOnEquipAll>
+   </EquipmentSet>
+   <EquipmentSet type="0x000f" id="Swarming Huntress Set">
+      <Setpiece slot="0" itemtype="0x08f7">Equipment</Setpiece>
+      <Setpiece slot="1" itemtype="0x08f8">Equipment</Setpiece>
+      <Setpiece slot="2" itemtype="0x08f9">Equipment</Setpiece>
+      <Setpiece slot="3" itemtype="0x08fa">Equipment</Setpiece>
+      <ActivateOnEquipAll skinType="0x08fb" size="80" color="0xffffff" bulletType="BeeityArrow">ChangeSkin</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="20" amount="7">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="22" amount="8">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="28" amount="11">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="21" amount="2">IncrementStat</ActivateOnEquipAll>
    </EquipmentSet>
 
 </EquipmentSets>

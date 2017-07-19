@@ -12,7 +12,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.NEWABILITYUNLOCKED; }
+            get { return PacketID.NEW_ABILITY; }
         }
 
         public override Packet CreateInstance()

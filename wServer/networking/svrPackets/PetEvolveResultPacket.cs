@@ -14,7 +14,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.EVOLVEPET; }
+            get { return PacketID.EVOLVE_PET; }
         }
 
         public override Packet CreateInstance()

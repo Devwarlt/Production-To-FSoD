@@ -16,7 +16,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.PASSWORDPROMPT; }
+            get { return PacketID.PASSWORD_PROMPT; }
         }
 
         public override Packet CreateInstance()

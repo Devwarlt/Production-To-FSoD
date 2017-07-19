@@ -8,7 +8,7 @@
 
         public override PacketID ID
         {
-            get { return PacketID.NEW_TICK; }
+            get { return PacketID.NEWTICK; }
         }
 
         public override Packet CreateInstance()

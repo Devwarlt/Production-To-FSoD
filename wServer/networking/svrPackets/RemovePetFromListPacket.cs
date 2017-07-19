@@ -12,7 +12,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.REMOVEPET; }
+            get { return PacketID.DELETE_PET; }
         }
 
         public override Packet CreateInstance()

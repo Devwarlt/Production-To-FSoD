@@ -155,7 +155,7 @@
     <Compile Include="logic\db\BehaviorDb.CandyLand.cs" />
     <Compile Include="logic\db\BehaviorDb.Draconis.cs" />
     <Compile Include="logic\db\BehaviorDb.Drakes.cs" />
-    <Compile Include="logic\db\BehaviorDb.EpicForestMaze.cs" />    
+    <Compile Include="logic\db\BehaviorDb.EpicForestMaze.cs" />
     <Compile Include="logic\db\BehaviorDb.ForestMaze.cs" />
     <Compile Include="logic\db\BehaviorDb.GhostShip.cs" />
     <Compile Include="logic\db\BehaviorDb.Lab.cs" />
@@ -284,7 +284,6 @@
     <Compile Include="networking\cliPackets\InvDropPacket.cs" />
     <Compile Include="networking\cliPackets\InvSwapPacket.cs" />
     <Compile Include="networking\cliPackets\JoinGuildPacket.cs" />
-    <Compile Include="networking\cliPackets\LeaveArenaPacket.cs" />
     <Compile Include="networking\cliPackets\LoadPacket.cs" />
     <Compile Include="networking\cliPackets\MovePacket.cs" />
     <Compile Include="networking\cliPackets\OtherHitPacket.cs" />
@@ -323,7 +322,6 @@
     <Compile Include="networking\handlers\InvDropHandler.cs" />
     <Compile Include="networking\handlers\InvSwapHandler.cs" />
     <Compile Include="networking\handlers\JoinGuildPacketHandler.cs" />
-    <Compile Include="networking\handlers\LeaveArenaHandler.cs" />
     <Compile Include="networking\handlers\LoadHandler.cs" />
     <Compile Include="networking\handlers\MoveHandler.cs" />
     <Compile Include="networking\handlers\TinkerQuestHandler.cs" />

@@ -10,7 +10,7 @@
 
         public override PacketID ID
         {
-            get { return PacketID.SHOW_EFFECT; }
+            get { return PacketID.SHOWEFFECT; }
         }
 
         public override Packet CreateInstance()

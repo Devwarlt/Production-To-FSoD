@@ -12,7 +12,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.RESKIN2; }
+            get { return PacketID.RESKIN_UNLOCK; }
         }
 
         public override Packet CreateInstance()

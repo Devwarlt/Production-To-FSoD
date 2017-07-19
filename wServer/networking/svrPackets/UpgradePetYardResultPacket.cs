@@ -12,7 +12,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.UPGRADEPETYARDRESULT; }
+            get { return PacketID.PETYARDUPDATE; }
         }
 
         public override Packet CreateInstance()

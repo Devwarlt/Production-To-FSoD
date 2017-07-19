@@ -13,7 +13,7 @@ namespace wServer.networking.handlers
     {
         public override PacketID ID
         {
-            get { return PacketID.TINKERQUEST; }
+            get { return PacketID.QUEST_REDEEM; }
         }
 
         protected override void HandlePacket(Client client, TinkerQuestPacket packet)

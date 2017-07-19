@@ -10,7 +10,7 @@ namespace wServer.networking.svrPackets
     {
         public override PacketID ID
         {
-            get { return PacketID.VERIFYEMAILDIALOG; }
+            get { return PacketID.VERIFY_EMAIL; }
         }
 
         public override Packet CreateInstance()

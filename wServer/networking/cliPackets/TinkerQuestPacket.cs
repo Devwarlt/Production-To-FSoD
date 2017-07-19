@@ -12,7 +12,7 @@ namespace wServer.networking.cliPackets
 
         public override PacketID ID
         {
-            get { return PacketID.TINKERQUEST; }
+            get { return PacketID.QUEST_REDEEM; }
         }
 
         public override Packet CreateInstance()

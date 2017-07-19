@@ -148,7 +148,8 @@ public enum ConditionEffectIndex
     SpdBoost = 43,
     VitBoost = 44,
     WisBoost = 45,
-    DexBoost = 46
+    DexBoost = 46,
+    Nothing = 47
 }
 
 public class PetStruct
@@ -166,7 +167,10 @@ public class PetStruct
             FirstAbility = (Ability)Enum.Parse(typeof(Ability), elem.Element("FirstAbility").Value.Replace(" ", String.Empty));
         DefaultSkin = elem.Element("DefaultSkin").Value;
         Size = int.Parse(elem.Element("Size").Value);
-        DisplayId = elem.Element("DisplayId").Value;
+        if (elem.Element("DisplayID") != null)
+            DisplayId = elem.Element("DisplayId").Value;
+        else
+            DisplayId = ObjectId;
     }
 
     public string ObjectId { get; private set; }
@@ -228,7 +232,8 @@ public class ProjectileDesc
         if (elem.Attribute("id") != null)
             BulletType = Utils.FromString(elem.Attribute("id").Value);
         ObjectId = elem.Element("ObjectId").Value;
-        LifetimeMS = Utils.FromString(elem.Element("LifetimeMS").Value);
+        if (elem.Attribute("LifetimeMS") != null)
+            LifetimeMS = float.Parse(elem.Element("LifetimeMS").Value, NumberStyles.Any, ci);
         Speed = float.Parse(elem.Element("Speed").Value, NumberStyles.Any, ci);
         if ((n = elem.Element("Size")) != null)
             Size = Utils.FromString(n.Value);
@@ -262,7 +267,7 @@ public class ProjectileDesc
 
     public int BulletType { get; private set; }
     public string ObjectId { get; private set; }
-    public int LifetimeMS { get; private set; }
+    public float LifetimeMS { get; private set; }
     public float Speed { get; private set; }
     public int Size { get; private set; }
     public int MinDamage { get; private set; }
@@ -317,7 +322,10 @@ public enum ActivateEffects
     ShurikenAbility,
     UnlockSkin,
     MysteryPortal,
-    GenericActivate
+    GenericActivate,
+    PetSkin,
+    Unlock,
+    MysteryDyes
 }
 
 public class ActivateEffect
@@ -340,6 +348,8 @@ public class ActivateEffect
             DurationSec = float.Parse(elem.Attribute("duration").Value, NumberStyles.Any, ci);
             DurationMS = (int)(DurationSec * 1000);
         }
+        if (elem.Attribute("skinId") != null)
+            PetSkindId = Utils.FromString(elem.Attribute("skinId").Value);
         if (elem.Attribute("duration2") != null)
             DurationMS2 = (int) (float.Parse(elem.Attribute("duration2").Value, NumberStyles.Any, ci)*1000);
         if (elem.Attribute("effect") != null)
@@ -393,6 +403,7 @@ public class ActivateEffect
     }
 
     public ActivateEffects Effect { get; private set; }
+    public int PetSkindId { get; private set; }
     public int Stats { get; private set; }
     public int Amount { get; private set; }
     public float Range { get; private set; }

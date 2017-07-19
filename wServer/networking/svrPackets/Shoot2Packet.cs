@@ -11,7 +11,7 @@
 
         public override PacketID ID
         {
-            get { return PacketID.SHOOT2; }
+            get { return PacketID.SERVERPLAYERSHOOT; }
         }
 
         public override Packet CreateInstance()

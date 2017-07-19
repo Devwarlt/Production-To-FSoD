@@ -10,7 +10,7 @@ namespace wServer.networking.cliPackets
     {
         public override PacketID ID
         {
-            get { return PacketID.VIEWQUESTS; }
+            get { return PacketID.QUEST_ROOM_MSG; }
         }
 
         public override Packet CreateInstance()

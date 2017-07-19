@@ -13,7 +13,7 @@ namespace wServer.networking.svrPackets
 
         public override PacketID ID
         {
-            get { return PacketID.QUESTREDEEMRESPONSE; }
+            get { return PacketID.QUEST_REDEEM_RESPONSE; }
         }
 
         public override Packet CreateInstance()

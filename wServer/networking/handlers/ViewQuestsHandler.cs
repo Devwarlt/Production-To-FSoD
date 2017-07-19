@@ -12,7 +12,7 @@ namespace wServer.networking.handlers
     {
         public override PacketID ID
         {
-            get { return PacketID.VIEWQUESTS; }
+            get { return PacketID.QUEST_ROOM_MSG; }
         }
 
         protected override void HandlePacket(Client client, ViewQuestsPacket packet)

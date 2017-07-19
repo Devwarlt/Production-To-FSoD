@@ -17,7 +17,7 @@ namespace wServer.networking.handlers
     {
         public override PacketID ID
         {
-            get { return PacketID.PETYARDCOMMAND; }
+            get { return PacketID.PETUPGRADEREQUEST; }
         }
 
         protected override void HandlePacket(Client client, PetYardCommandPacket packet)
