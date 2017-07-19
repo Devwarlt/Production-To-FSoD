@@ -1,11 +1,13 @@
-#NOTE: I am not gunna update this server to 27.5 because the build (1439425927) is still bugged as hell.
+# Note:
+I'm not going to support this server source or fix bugs. If you want to use is your own risk to manage/support itself. This source is unstable and need adjusts for PacketIds.cs (I mean, you need to set properly packet IDs for each client/server request).
 
-#Build Status: [![Build status](https://img.shields.io/appveyor/ci/ossimc82/fabiano-swagger-of-doom/master.svg)](https://ci.appveyor.com/project/ossimc82/fabiano-swagger-of-doom)
+# Build Status
+[![Build status](https://img.shields.io/appveyor/ci/ossimc82/fabiano-swagger-of-doom/master.svg)](https://ci.appveyor.com/project/ossimc82/fabiano-swagger-of-doom)
 
-##Additional License information
+## Additional License information
 
-You are free to use this source as long as u credit this guys:
-
+You are free to use this source as long as you credit theses guys:
+- Devwarlt (It's not my source, I just added some features to support latest RotMG version)
 - ossimc82/Fabian Fischer
 - C453
 - Trapped
@@ -17,5 +19,3 @@ You are free to use this source as long as u credit this guys:
 - sebastianfra12 for some more behaviors
 - Kieron for making 1 behavior
 - everyone else that have contributed to this project on mpgh or any other site
-
-And you are not "WintersQ" and "I Don't Love You" on MPGH
