@@ -71,6 +71,8 @@ namespace wServer.logic.behaviors
             if (cool <= 0)
             {
                 if (host.HasConditionEffect(ConditionEffectIndex.Stunned)) return;
+                
+                if (host.HasConditionEffect(ConditionEffectIndex.Dazed)) coolDown = 2000;
 
                 Entity player = host.GetNearestEntity(radius, null);
                 if (player != null || defaultAngle != null || fixedAngle != null)
