@@ -163,7 +163,7 @@ public class PetStruct
         else
             PetFamily = (Family)Enum.Parse(typeof(Family), elem.Element("Family").Value);
         PetRarity = (Rarity)Enum.Parse(typeof(Rarity), elem.Element("Rarity").Value);
-        if(elem.Element("FirstAbility") != null)
+        if (elem.Element("FirstAbility") != null)
             FirstAbility = (Ability)Enum.Parse(typeof(Ability), elem.Element("FirstAbility").Value.Replace(" ", String.Empty));
         DefaultSkin = elem.Element("DefaultSkin").Value;
         Size = int.Parse(elem.Element("Size").Value);
@@ -205,14 +205,14 @@ public class ConditionEffect
 
     public ConditionEffect(XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
-        Effect = (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Value.Replace(" ", ""));
+        Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Value.Replace(" ", ""));
         if (elem.Attribute("duration") != null)
-            DurationMS = (int) (float.Parse(elem.Attribute("duration").Value, NumberStyles.Any, ci)*1000);
+            DurationMS = (int)(float.Parse(elem.Attribute("duration").Value, NumberStyles.Any, ci) * 1000);
         if (elem.Attribute("range") != null)
             Range = float.Parse(elem.Attribute("range").Value, NumberStyles.Any, ci);
-        if(elem.Attribute("target") != null)
+        if (elem.Attribute("target") != null)
             Target = int.Parse(elem.Attribute("target").Value, NumberStyles.Any, ci);
     }
 
@@ -226,7 +226,7 @@ public class ProjectileDesc
 {
     public ProjectileDesc(XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
         XElement n;
         if (elem.Attribute("id") != null)
@@ -262,7 +262,7 @@ public class ProjectileDesc
         n = elem.Element("Frequency");
         Frequency = n != null ? float.Parse(n.Value, NumberStyles.Any, ci) : 1;
         n = elem.Element("Magnitude");
-        Magnitude = n != null ? float.Parse(n.Value, NumberStyles.Any, ci) : 3; 
+        Magnitude = n != null ? float.Parse(n.Value, NumberStyles.Any, ci) : 3;
     }
 
     public int BulletType { get; private set; }
@@ -332,9 +332,9 @@ public class ActivateEffect
 {
     public ActivateEffect(XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
-        Effect = (ActivateEffects) Enum.Parse(typeof (ActivateEffects), elem.Value);
+        Effect = (ActivateEffects)Enum.Parse(typeof(ActivateEffects), elem.Value);
         if (elem.Attribute("stat") != null)
             Stats = Utils.FromString(elem.Attribute("stat").Value);
 
@@ -351,13 +351,13 @@ public class ActivateEffect
         if (elem.Attribute("skinId") != null)
             PetSkindId = Utils.FromString(elem.Attribute("skinId").Value);
         if (elem.Attribute("duration2") != null)
-            DurationMS2 = (int) (float.Parse(elem.Attribute("duration2").Value, NumberStyles.Any, ci)*1000);
+            DurationMS2 = (int)(float.Parse(elem.Attribute("duration2").Value, NumberStyles.Any, ci) * 1000);
         if (elem.Attribute("effect") != null)
             ConditionEffect =
-                (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Attribute("effect").Value);
+                (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Attribute("effect").Value);
         if (elem.Attribute("condEffect") != null)
             ConditionEffect =
-                (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Attribute("condEffect").Value);
+                (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Attribute("condEffect").Value);
         if (elem.Attribute("condDuration") != null)
             EffectDuration = float.Parse(elem.Attribute("condDuration").Value, NumberStyles.Any, ci);
 
@@ -464,7 +464,7 @@ public class Item : IFeedable
     {
         try
         {
-            CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+            CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             ci.NumberFormat.CurrencyDecimalSeparator = ".";
             XElement n;
             ObjectType = type;
@@ -487,7 +487,7 @@ public class Item : IFeedable
             Usable = elem.Element("Usable") != null;
             BagType = (n = elem.Element("BagType")) != null ? Utils.FromString(n.Value) : 0;
             MpCost = (n = elem.Element("MpCost")) != null ? Utils.FromString(n.Value) : 0;
-            FeedPower = (n = elem.Element("feedPower")) != null ? (ushort) Utils.FromString(n.Value) : (ushort) 0;
+            FeedPower = (n = elem.Element("feedPower")) != null ? (ushort)Utils.FromString(n.Value) : (ushort)0;
             FameBonus = (n = elem.Element("FameBonus")) != null ? Utils.FromString(n.Value) : 0;
             NumProjectiles = (n = elem.Element("NumProjectiles")) != null ? Utils.FromString(n.Value) : 1;
             ArcGap = (n = elem.Element("ArcGap")) != null ? Utils.FromString(n.Value) : 11.25f;
@@ -604,7 +604,7 @@ public class ObjectDesc
 {
     public ObjectDesc(ushort type, XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
         XElement n;
         ObjectType = type;
@@ -649,7 +649,10 @@ public class ObjectDesc
             MaxHP = Utils.FromString(n.Value);
         }
         if ((n = elem.Element("MaxMagicPoints")) != null)
+        {
             MaxMagicPoints = n.Attribute("max") != null ? Utils.FromString(n.Attribute("max").Value) : -1;
+            MaxMP = Utils.FromString(n.Value);
+        }
 
         if ((n = elem.Element("Attack")) != null)
             MaxAttack = n.Attribute("max") != null ? Utils.FromString(n.Attribute("max").Value) : -1;
@@ -738,8 +741,8 @@ public class ObjectDesc
     public TagList Tags { get; private set; }
     public ProjectileDesc[] Projectiles { get; private set; }
 
-
     public double MaxHP { get; private set; }
+    public double MaxMP { get; private set; }
     public int Defense { get; private set; }
     public string Terrain { get; private set; }
     public float SpawnProbability { get; private set; }
@@ -795,7 +798,7 @@ public class TileDesc
 {
     public TileDesc(ushort type, XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
         XElement n;
         ObjectType = type;
@@ -840,10 +843,10 @@ public class DungeonDesc
 {
     public DungeonDesc(XElement elem)
     {
-        CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
         Name = elem.Attribute("name").Value;
-        PortalId = (ushort) Utils.FromString(elem.Attribute("type").Value);
+        PortalId = (ushort)Utils.FromString(elem.Attribute("type").Value);
         Background = Utils.FromString(elem.Element("Background").Value);
         AllowTeleport = elem.Element("AllowTeleport") != null;
         Json = elem.Element("Json").Value;

@@ -1,9 +1,9 @@
 ﻿#region
 
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using log4net;
 using wServer.logic;
 using wServer.networking;
 using wServer.networking.cliPackets;
@@ -16,6 +16,7 @@ namespace wServer.realm.entities.player
     internal interface IPlayer
     {
         void Damage(int dmg, Entity chr);
+
         bool IsVisibleToEnemy();
     }
 
@@ -225,6 +226,7 @@ namespace wServer.realm.entities.player
             get { return LootDropBoostTimeLeft > 0; }
             set { LootDropBoostTimeLeft = value ? LootDropBoostTimeLeft : 0.0f; }
         }
+
         public float LootDropBoostTimeLeft { get; set; }
 
         public bool LootTierBoost
@@ -232,6 +234,7 @@ namespace wServer.realm.entities.player
             get { return LootTierBoostTimeLeft > 0; }
             set { LootTierBoostTimeLeft = value ? LootTierBoostTimeLeft : 0.0f; }
         }
+
         public float LootTierBoostTimeLeft { get; set; }
 
         public bool XpBoosted { get; set; }
@@ -448,19 +451,19 @@ namespace wServer.realm.entities.player
             switch (Owner.Name)
             {
                 case "Arena":
-                {
-                    Client.SendPacket(new ArenaDeathPacket
                     {
-                        RestartPrice = 100
-                    });
-                    HP = Client.Character.MaxHitPoints;
-                    ApplyConditionEffect(new ConditionEffect
-                    {
-                        Effect = ConditionEffectIndex.Invulnerable,
-                        DurationMS = -1
-                    });
-                    return;
-                }
+                        Client.SendPacket(new ArenaDeathPacket
+                        {
+                            RestartPrice = 100
+                        });
+                        HP = Client.Character.MaxHitPoints;
+                        ApplyConditionEffect(new ConditionEffect
+                        {
+                            Effect = ConditionEffectIndex.Invulnerable,
+                            DurationMS = -1
+                        });
+                        return;
+                    }
             }
 
             if (Client.Stage == ProtocalStage.Disconnected || resurrecting)
@@ -528,9 +531,9 @@ namespace wServer.realm.entities.player
         {
             //if (Name == "ossimc82" || Name == "C453")
             //{
-                Pet = new Pet(Manager, petInfo, this);
-                Pet.Move(X, Y);
-                Owner.EnterWorld(Pet);
+            Pet = new Pet(Manager, petInfo, this);
+            Pet.Move(X, Y);
+            Owner.EnterWorld(Pet);
             //}
         }
 
@@ -575,7 +578,7 @@ namespace wServer.realm.entities.player
             SendAccountList(Locked, AccountListPacket.LOCKED_LIST_ID);
             SendAccountList(Ignored, AccountListPacket.IGNORED_LIST_ID);
 
-            WorldTimer[] accTimer = {null};
+            WorldTimer[] accTimer = { null };
             owner.Timers.Add(accTimer[0] = new WorldTimer(5000, (w, t) =>
             {
                 Manager.Database.DoActionAsync(db =>
@@ -590,7 +593,7 @@ namespace wServer.realm.entities.player
                 });
             }));
 
-            WorldTimer[] pingTimer = {null};
+            WorldTimer[] pingTimer = { null };
             owner.Timers.Add(pingTimer[0] = new WorldTimer(PING_PERIOD, (w, t) =>
             {
                 Client.SendPacket(new PingPacket { Serial = pingSerial++ });
@@ -636,13 +639,14 @@ namespace wServer.realm.entities.player
             chr.Tex2 = Texture2;
             chr.Pet = Pet?.Info;
             chr.CurrentFame = Fame;
-            chr.HitPoints = HP;
-            chr.MagicPoints = Mp;
+            chr.HitPoints = (int)hp;
+            chr.MagicPoints = (int)mp;
             switch (Inventory.Length)
             {
                 case 12:
                     chr.Equipment = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
                     break;
+
                 case 20:
                     var equip = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
                     var backpack = new int[8];
@@ -652,14 +656,14 @@ namespace wServer.realm.entities.player
                     chr.Backpack = backpack;
                     break;
             }
-            chr.MaxHitPoints = Stats[0];
-            chr.MaxMagicPoints = Stats[1];
-            chr.Attack = Stats[2];
-            chr.Defense = Stats[3];
-            chr.Speed = Stats[4];
-            chr.HpRegen = Stats[5];
-            chr.MpRegen = Stats[6];
-            chr.Dexterity = Stats[7];
+            chr.MaxHitPoints = (int)maxHpBase;
+            chr.MaxMagicPoints = (int)maxMpBase;
+            chr.Attack = (int)attBase;
+            chr.Defense = (int)defBase;
+            chr.Speed = (int)spdBase;
+            chr.HpRegen = (int)vitBase;
+            chr.MpRegen = (int)wisBase;
+            chr.Dexterity = (int)dexBase;
             chr.HealthStackCount = HealthPotions;
             chr.MagicStackCount = MagicPotions;
             chr.HasBackpack = HasBackpack.GetHashCode();
